@@ -20,4 +20,10 @@ public class Director extends Manager {
         return budget;
     }
 
+    // Overridden method
+    public double payBonus() {
+        // Bonus is 2%
+        return getSalary() / 50;
+    }
+
 }

@@ -16,6 +16,16 @@ public abstract class Employee {
         return name;
     }
 
+    public void setName(String newName) {
+        // Requirements asked to ensure that new name is not
+        // null...checking for it (not) being empty either.
+        // The check for null needs to be first - otherwise
+        // you will get a null pointer exception!!!
+
+        if (newName != null && !newName.isEmpty())
+            this.name = newName;
+    }
+
     public String getNiNumber() {
         return niNumber;
     }
@@ -25,7 +35,8 @@ public abstract class Employee {
     }
 
     public void raiseSalary(double raise) {
-        salary += raise;
+        if (raise >= 0.00)
+            salary += raise;
     }
 
     public double payBonus() {

@@ -22,6 +22,24 @@ public class DatabaseAdminTest {
     }
 
     @Test
+    public void canChangeName(){
+        databaseAdmin.setName("Eastern Diego");
+        assertEquals("Eastern Diego", databaseAdmin.getName());
+    }
+
+    @Test
+    public void canChangeName_false_empty(){
+        databaseAdmin.setName("");
+        assertEquals("Siberian Diego", databaseAdmin.getName());
+    }
+
+    @Test
+    public void canChangeName_false_null(){
+        databaseAdmin.setName(null);
+        assertEquals("Siberian Diego", databaseAdmin.getName());
+    }
+
+    @Test
     public void hasNINumber(){
         assertEquals("TD224313S", databaseAdmin.getNiNumber());
     }
@@ -35,6 +53,12 @@ public class DatabaseAdminTest {
     public void canRaiseSalary(){
         databaseAdmin.raiseSalary(2500.00);
         assertEquals(37500.00, databaseAdmin.getSalary(), 0.0);
+    }
+
+    @Test
+    public void canRaiseSalary_false(){
+        databaseAdmin.raiseSalary(-2500.00);
+        assertEquals(35000, databaseAdmin.getSalary(), 0.0);
     }
 
     @Test

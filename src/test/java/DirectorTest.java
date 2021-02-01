@@ -24,6 +24,24 @@ public class DirectorTest {
     }
 
     @Test
+    public void canChangeName(){
+        director.setName("Sid Mammoth");
+        assertEquals("Sid Mammoth", director.getName());
+    }
+
+    @Test
+    public void canChangeName_false_empty(){
+        director.setName("");
+        assertEquals("Manny Mammoth", director.getName());
+    }
+
+    @Test
+    public void canChangeName_false_null(){
+        director.setName(null);
+        assertEquals("Manny Mammoth", director.getName());
+    }
+
+    @Test
     public void hasNINumber(){
         assertEquals("MM338833M", director.getNiNumber());
     }
@@ -45,8 +63,21 @@ public class DirectorTest {
     }
 
     @Test
+    public void canRaiseSalary_false(){
+        director.raiseSalary(-10_000.00);
+        assertEquals(75000, director.getSalary(), 0.0);
+    }
+
+    // Old method that gave director a bonus of 1%
+//    @Test
+//    public void canPayBonus(){
+//        assertEquals(750.00, director.payBonus(), 0.0);
+//    }
+
+    // New method that gives Director a bonus of 2%.
+    @Test
     public void canPayBonus(){
-        assertEquals(750.00, director.payBonus(), 0.0);
+        assertEquals(1500.00, director.payBonus(), 0.0);
     }
 
     @Test
