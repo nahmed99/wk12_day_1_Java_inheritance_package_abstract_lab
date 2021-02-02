@@ -40,7 +40,6 @@ public abstract class Employee {
     }
 
     public double payBonus() {
-        // Raise (not really a) bonus by 1%...must be civil servants!
         return salary / 100;
     }
 
